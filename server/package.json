@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "local": "sls offline --httpPort 4003 --lambdaPort 3025 --noPrependStageInUrl --prefix dev",
+    "deploy": "npx serverless deploy --stage=prod",
+    "deploy:dev": "npx serverless deploy --stage=dev"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.103",
+    "serverless": "^3.22.0",
+    "serverless-offline": "^10.0.0",
+    "serverless-plugin-typescript": "^2.1.2"
+  },
+  "dependencies": {
+    "csv-parse": "^5.3.0"
+  }
+}
