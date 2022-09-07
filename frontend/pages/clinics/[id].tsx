@@ -56,8 +56,6 @@ const capitaliseAndReplace = (header: string): string => {
   return word[0].toUpperCase() + word.substring(1).toLowerCase();
 }
 
-
-
 const orderData = (patients: Patient[], key: string, direction: Direction): Patient[]  => {
 
   switch (key) {
@@ -87,7 +85,6 @@ const ClinicPage = ({ clinic, patients }: Props) => {
   const [orderedPatients, setOrderedPatients] = useState<Patient[]>([])
 
   const orderDataBy = (key: string) => {
-    // console.log('orderDataBy', key)
     if (key === orderKey) {
       setDirection(direction === Direction.ASC ? Direction.DESC : Direction.ASC)
       setOrderKey(key);
@@ -98,13 +95,9 @@ const ClinicPage = ({ clinic, patients }: Props) => {
   }
 
   useEffect(() => {
-    // console.log('orderKey', orderKey)
-    // console.log('direction', direction)
     const data = orderData(patients, orderKey, direction);
     setOrderedPatients([...data])
   }, [patients, orderKey, direction])
-
-  // console.log('orderedPatients', orderedPatients)
 
   return (
     <div className={styles.container}>
